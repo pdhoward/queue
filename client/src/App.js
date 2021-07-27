@@ -7,7 +7,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
 // this is hard-coded for testing
-const APP_ID = "6074c0d2f8bc834cf9fb5729";
+//const APP_ID = "6074c0d2f8bc834cf9fb5729";
+const APP_ID = '610017bf29d6d129610b0c89'
 
 function App() {
   const [subscriptions, setSubscriptions] = useState([]);
