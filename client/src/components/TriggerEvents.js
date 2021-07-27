@@ -8,6 +8,7 @@ const TriggerEvents = ({ eventTypes, app_id }) => {
 
   console.log(`----entered trigger events ------`)
   console.log(eventTypes)
+  
   const handleNewHook = (e) => {
     e.preventDefault();
     const newEvent = {
