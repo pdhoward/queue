@@ -3,9 +3,9 @@ const axios = require("axios");
 const { validationResult } = require("express-validator");
 
 const createSubscription = async (req, res, next) => {
-  console.log(`----entered create subscription----`)
+  
   const errors = validationResult(req);
-  console.log(errors)
+  
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
@@ -36,7 +36,8 @@ const pingNewEndpoint = async (subscription, app_id) => {
 
   try {
     const body = { msg: "Congrats on creating a new endpoint!" };
-    await axios.post(subscription.url, body, config);
+    //await axios.post(subscription.url, body, config);
+    axios.get(subscription.url);
   } catch (error) {
     console.log("Could not ping new endpoint.  Endpoint still created.");
   }

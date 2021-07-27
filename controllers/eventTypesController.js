@@ -3,27 +3,13 @@ const EventType = require("../models/eventType");
 const { validationResult } = require("express-validator");
 
 const getEventTypes = async (req, res, next) => {
-  const errors = validationResult(req);
-  console.log(`-------get event types------`)
-  console.log(errors)
+  const errors = validationResult(req);  
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
-
   let parm = req.params.app_id.trim()
-
-  let result = await EventType.find({app_id: ObjectId(parm)})
-  console.log(`---------------result-----------`)
-  console.log(result)
-  res.json(result);
-  // EventType.find({ app_id: parm })
-  //   .then((eventTypes) => {
-  //     console.log(`retrieved events types`)
-  //     console.log(req.params.app_id)
-  //     console.log(JSON.stringify(eventTypes))
-  //     res.json(eventTypes);
-  //   })
-  //   .catch((error) => console.log(error));
+  let result = await EventType.find({app_id: ObjectId(parm)}) 
+  res.json(result);  
 };
 
 const createEventType = (req, res, next) => {
