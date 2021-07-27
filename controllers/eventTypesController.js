@@ -3,12 +3,17 @@ const { validationResult } = require("express-validator");
 
 const getEventTypes = (req, res, next) => {
   const errors = validationResult(req);
+  console.log(`-------get event types------`)
+  console.log(errors)
   if (!errors.isEmpty()) {
     return res.status(400).json({ errors: errors.array() });
   }
 
   EventType.find({ app_id: req.params.app_id })
     .then((eventTypes) => {
+      console.log(`retrieved events types`)
+      console.log(req.params.app_id)
+      console.log(JSON.stringify(eventTypes))
       res.json(eventTypes);
     })
     .catch((error) => console.log(error));

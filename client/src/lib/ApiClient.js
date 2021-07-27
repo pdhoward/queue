@@ -26,6 +26,8 @@ const deleteSubscription = (app_id, subscription_id, callback) => {
 };
 
 const getEventTypes = (app_id, callback) => {
+  console.log(`getevent types api`)
+  console.log(app_id)
   axios
     .get(`/api/v1/apps/${app_id}/event_types`)
     .then(unwrapData)

@@ -5,6 +5,9 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 
 const TriggerEvents = ({ eventTypes, app_id }) => {
+
+  console.log(`----entered trigger events ------`)
+  console.log(eventTypes)
   const handleNewHook = (e) => {
     e.preventDefault();
     const newEvent = {
