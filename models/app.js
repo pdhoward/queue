@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const AppSchema = new Schema({
+  _id: Schema.Types.ObjectId,
   name: { type: String, required: true },
   created_at: { type: Date, default: Date.now() },
 });
