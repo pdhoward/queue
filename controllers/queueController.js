@@ -42,16 +42,16 @@ const worker = async (msgData, callback) => {
 const sendMessage = (msgData) => {
   const config = extractConfig(msgData);
 
-  // make this is a get for testing purposes
-  axios
-  .get(msgData.url)
-  .then((res) => handleSuccessfulDelivery(msgData, res))
-  .catch((res) => handleFailedDelivery(msgData, res));
-
+  // // make this is a get for testing purposes
   // axios
-  //   .post(msgData.url, msgData.payload, config)
-  //   .then((res) => handleSuccessfulDelivery(msgData, res))
-  //   .catch((res) => handleFailedDelivery(msgData, res));
+  // .get(msgData.url)
+  // .then((res) => handleSuccessfulDelivery(msgData, res))
+  // .catch((res) => handleFailedDelivery(msgData, res));
+
+  axios
+    .post(msgData.url, msgData.payload, config)
+    .then((res) => handleSuccessfulDelivery(msgData, res))
+    .catch((res) => handleFailedDelivery(msgData, res));
 };
 
 const handleSuccessfulDelivery = async (msgData, res) => {

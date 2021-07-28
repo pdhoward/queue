@@ -36,8 +36,8 @@ const pingNewEndpoint = async (subscription, app_id) => {
 
   try {
     const body = { msg: "Congrats on creating a new endpoint!" };
-    //await axios.post(subscription.url, body, config);
-    axios.get(subscription.url);
+    await axios.post(subscription.url, body, config);
+    //axios.get(subscription.url);
   } catch (error) {
     console.log("Could not ping new endpoint.  Endpoint still created.");
   }
